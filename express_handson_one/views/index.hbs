@@ -1,8 +1,18 @@
 <h1>Amazing US Cities</h1>
 <p>{{title}}</p>
 
-<ul>
+<table>
+    <tr>
+        <th>City</th>
+        <th>State</th>
+        <th>Population</th>
+    </tr>
+    
     {{#each cities}}
-    <li>{{name}}, {{state}}, {{population}}</li>
+    <tr>
+        <td>{{name}}</td>
+        <td>{{state}}</td>
+        <td>{{population}}</td>
+    </tr>
     {{/each}}
-</ul>
+</table>

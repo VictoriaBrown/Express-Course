@@ -10,8 +10,8 @@ router.get('/', function(req, res, next) {
         name: 'San Fransisco',
         state: 'CA',
         population: 864816
-      },
-      {
+       },
+       {
         name: 'Denver',
         state: 'CO',
         population: 682545
@@ -41,8 +41,8 @@ router.get('/', function(req, res, next) {
         state: 'PA',
         population: 303625
       }
-    ]‎
+    ]});
   });
-});
+    
 
 module.exports = router;
