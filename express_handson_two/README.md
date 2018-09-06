@@ -1,5 +1,5 @@
 Requirements
-To begin, generate a new project (within the Express-Course directory on your desktop) using the express/handlebar generator.
+To begin, generate a new project using the express/handlebar generator.
 Call this app express-handson-two.
 Don't forget to run npm install
 Install and run Nodemon
