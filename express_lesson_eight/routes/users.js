@@ -3,6 +3,7 @@ var router = express.Router();
 const sqlite = require('sqlite3').verbose();
 var models = require('../models');
 const auth = require('../config/auth');
+const passport = require('passport');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -75,6 +76,23 @@ router.post('/login', function (req, res, next) {
 
   });
 });
+
+router.get('/login/github', passport.authenticate('github', {
+  session: true,
+  failureRedirect: '/users/login'
+}));
+
+router.get(
+  '/login/github/callback',
+  passport.authenticate('github', {
+    failureRedirect: '/users/login'
+  }),
+  function (req, res) {
+    const token = auth.signUser(req.user);
+    res.cookie('jwt', token);
+    res.redirect('/users/profile/' + req.user.UserId)
+  }
+);
 
 router.get('/profile/:id', auth.verifyUser, function(req, res, next) {
   if (req.params.id !== String(req.user.UserId)) {
